@@ -3,556 +3,703 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Ledisa Order Confirmed | Billing & Subscription Help</title>
-  <meta name="description" content="Recognized a Ledisa charge? You're in the right place. Manage your subscription or contact support.">
+  <title>Your Ledisa Order | Billing & Account Help</title>
+  <meta name="description" content="Recognized a Ledisa charge? This page explains your order and helps you manage your account.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --teal: #2ba8a4;
       --teal-dark: #1e8c88;
-      --teal-light: #e6f6f6;
+      --teal-pale: #f0fafa;
+      --black: #0e0e0e;
+      --ink: #1c1c1c;
+      --white: #ffffff;
+      --stone: #f5f3ef;
+      --border: #e4e0d8;
+      --muted: #3a3a35;
       --yellow: #e8b84b;
       --yellow-dark: #c99e38;
-      --black: #111111;
-      --white: #ffffff;
-      --off-white: #f7f5f0;
-      --light-bg: #eaf6f6;
-      --border: #e0ddd8;
-      --text: #1a1a1a;
-      --muted: #666660;
-      --green: #2ba87a;
-      --orange: #d4500a;
+      --green-text: #1a6644;
+      --green-bg: #eaf7f0;
+      --green-border: #a8dfc4;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--stone);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+      line-height: 1.6;
+    }
 
-    /* ANNOUNCEMENT BAR */
-    .ann-bar { background: var(--teal); color: #fff; text-align: center; font-size: 13px; font-weight: 500; padding: 10px 20px; }
-
-    /* HEADER */
-    .site-header { background: var(--black); position: sticky; top: 0; z-index: 200; }
-    .header-wrap { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 64px; }
-    .site-logo { font-family: 'Libre Baskerville', serif; font-size: 28px; font-weight: 700; color: #fff; text-decoration: none; }
-    .header-nav { display: flex; align-items: center; gap: 32px; }
-    .header-nav a { font-size: 13.5px; font-weight: 400; color: #fff; text-decoration: none; opacity: 0.85; transition: opacity 0.15s; }
-    .header-nav a:hover { opacity: 1; }
-
-    /* HERO - confirmation banner */
-    .hero { background: var(--off-white); padding: 56px 40px 44px; text-align: center; border-bottom: 1px solid var(--border); }
-    .pill { display: inline-block; background: var(--teal-light); color: var(--teal-dark); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 16px; border-radius: 30px; margin-bottom: 20px; }
-    .hero h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(30px, 5vw, 50px); font-weight: 700; line-height: 1.15; color: var(--black); max-width: 700px; margin: 0 auto 16px; }
-    .hero p { font-size: 16px; color: var(--muted); max-width: 520px; margin: 0 auto 24px; line-height: 1.75; }
-    .descriptor { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 11px 20px; font-family: 'Courier New', monospace; font-size: 12.5px; color: var(--muted); }
-    .descriptor-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
-    .descriptor strong { color: var(--black); font-weight: 700; }
-
-    /* CONSENT BANNER */
-    .consent-banner {
-      background: #fff8ed;
-      border-top: 3px solid var(--yellow);
-      border-bottom: 1px solid #f0dfa0;
-      padding: 20px 40px;
+    /* ── TOP STRIP ── */
+    .top-strip {
+      background: var(--teal);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
       text-align: center;
+      padding: 9px 20px;
     }
-    .consent-banner p { font-size: 14px; color: #5a4a00; max-width: 760px; margin: 0 auto; line-height: 1.7; }
-    .consent-banner strong { color: #3a2f00; }
 
-    /* JOURNEY SECTION */
-    .journey-section { background: var(--light-bg); padding: 72px 40px; }
-    .journey-inner { max-width: 1000px; margin: 0 auto; }
-    .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-dark); text-align: center; margin-bottom: 12px; }
-    .section-title { font-family: 'Libre Baskerville', serif; font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; color: var(--black); text-align: center; margin-bottom: 14px; line-height: 1.2; }
-    .section-sub { font-size: 15px; color: var(--muted); text-align: center; max-width: 520px; margin: 0 auto 48px; line-height: 1.75; }
+    /* ── HEADER ── */
+    .site-header {
+      background: #0d3d3b;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .hdr {
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 40px; height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px; color: #fff; text-decoration: none; letter-spacing: -0.3px;
+    }
+    .hdr-links { display: flex; gap: 28px; align-items: center; }
+    .hdr-links a { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.15s; }
+    .hdr-links a:hover { color: #fff; }
 
-    .journey-step { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; background: #fff; border: 1px solid #c8e8e7; border-radius: 16px; padding: 40px; margin-bottom: 12px; }
-    .journey-step.highlighted { border: 2px solid var(--teal); background: #f0fafa; }
-    .journey-connector { text-align: center; font-size: 26px; color: var(--teal); margin: 4px 0; line-height: 1; }
-    .j-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 10px; }
-    .j-label-charge { display: inline-block; background: #fff3ed; color: var(--orange); border: 1px solid #f4a97a; padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 12px; }
-    .j-title { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 10px; line-height: 1.3; }
-    .j-desc { font-size: 14px; color: var(--muted); line-height: 1.8; }
-    .j-positive { display: inline-block; margin-top: 12px; background: #eaf7f0; color: #1a6644; border: 1px solid #a8dfc4; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; }
+    /* ── HERO — split layout ── */
+    .hero {
+      background: var(--stone);
+      padding: 80px 40px 0;
+    }
+    .hero-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 64px; align-items: end;
+    }
+    .hero-left { padding-bottom: 72px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--teal-dark); margin-bottom: 28px;
+    }
+    .hero-eyebrow span {
+      display: inline-block; width: 6px; height: 6px;
+      border-radius: 50%; background: var(--teal);
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(40px, 5.5vw, 64px);
+      font-weight: 400; line-height: 1.05;
+      color: var(--ink); margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .hero h1 em { color: var(--teal); font-style: normal; }
+    .hero-desc {
+      font-size: 16px; font-weight: 300; color: var(--muted);
+      max-width: 460px; line-height: 1.8; margin-bottom: 36px;
+    }
 
-    /* MOCK UI */
-    .mock-supply-picker { display: flex; gap: 10px; }
-    .mock-supply-opt { flex: 1; border: 1px solid #ddd; border-radius: 10px; padding: 14px 8px; text-align: center; background: #fff; position: relative; }
-    .mock-supply-opt.selected { border: 2px solid var(--teal); background: #f0fafa; }
-    .mock-save-badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--teal); color: #fff; font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 10px; white-space: nowrap; }
-    .mock-save-badge.orange { background: #e07b3a; }
-    .mock-patch-img { font-size: 22px; margin: 8px 0 6px; }
-    .mock-supply-label { font-size: 11px; font-weight: 500; color: var(--black); }
-    .mock-subscribe-box { border: 1px solid #ddd; border-radius: 12px; overflow: hidden; background: #fff; font-size: 13px; }
-    .mock-popular-bar { background: var(--teal); color: #fff; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 7px; }
-    .mock-subscribe-inner { margin: 8px; border: 2px solid var(--teal); border-radius: 8px; background: #f0fafa; padding: 14px; }
-    .mock-radio-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
-    .mock-radio { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #ccc; flex-shrink: 0; margin-top: 2px; display: inline-block; }
-    .mock-radio.active { border-color: var(--teal); background: var(--teal); box-shadow: inset 0 0 0 3px #fff; }
-    .mock-sub-title { font-weight: 600; font-size: 13px; color: var(--black); }
-    .mock-sub-sub { font-size: 11px; color: var(--teal-dark); margin-top: 2px; }
-    .mock-price { font-weight: 700; color: var(--black); }
-    .mock-price-old { font-size: 11px; color: #999; text-decoration: line-through; margin-left: 4px; }
-    .mock-checks { margin-top: 8px; }
-    .mock-check-line { font-size: 12px; color: var(--muted); margin-bottom: 4px; display: flex; gap: 6px; align-items: center; }
+    /* receipt card on hero */
+    .receipt-card {
+      background: var(--white);
+      border-radius: 20px 20px 0 0;
+      padding: 36px 32px;
+      box-shadow: 0 -8px 40px rgba(0,0,0,0.3);
+    }
+    .receipt-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
+    }
+    .receipt-badge {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--teal); display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .receipt-header-text h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px; color: var(--ink); margin-bottom: 2px;
+    }
+    .receipt-header-text p { font-size: 12.5px; color: var(--muted); }
+    .receipt-rows { border-top: 1px solid var(--border); }
+    .receipt-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+    }
+    .receipt-row:last-child { border-bottom: none; }
+    .receipt-row .label { color: #555; }
+    .receipt-row .val { font-weight: 500; color: var(--ink); }
+    .receipt-row .val.green {
+      color: var(--teal-dark); display: flex; align-items: center; gap: 6px;
+    }
+    .receipt-row .val.green::before {
+      content: ''; display: inline-block;
+      width: 7px; height: 7px; border-radius: 50%; background: var(--teal);
+    }
+
+    /* ── MAIN CONTENT WRAPPER ── */
+    .page-body { max-width: 1160px; margin: 0 auto; padding: 0 40px 80px; }
+
+    /* ── WHAT HAPPENED — horizontal timeline ── */
+    .timeline-section { padding: 72px 0 0; }
+    .tl-header { text-align: center; margin-bottom: 56px; }
+    .eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--teal-dark); margin-bottom: 12px;
+    }
+    .display-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+      color: var(--ink); line-height: 1.15; letter-spacing: -0.5px;
+    }
+    .display-sub {
+      font-size: 15px; color: var(--muted); max-width: 500px;
+      margin: 14px auto 0; line-height: 1.75; font-weight: 300;
+    }
+
+    .timeline {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 0; position: relative;
+    }
+    .timeline::before {
+      content: ''; position: absolute;
+      top: 36px; left: calc(16.66% + 20px); right: calc(16.66% + 20px);
+      height: 2px; background: var(--border); z-index: 0;
+    }
+    .tl-step { text-align: center; padding: 0 24px; position: relative; }
+    .tl-dot-wrap { display: flex; justify-content: center; margin-bottom: 20px; position: relative; z-index: 1; }
+    .tl-dot {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; transition: border-color 0.2s;
+    }
+    .tl-step.active .tl-dot {
+      background: var(--teal); border-color: var(--teal);
+      box-shadow: 0 0 0 6px rgba(43,168,164,0.12);
+    }
+    .tl-step-num {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #444; margin-bottom: 8px;
+    }
+    .tl-step.active .tl-step-num { color: var(--teal-dark); }
+    .tl-step h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 19px; font-weight: 400; color: var(--ink); margin-bottom: 10px;
+    }
+    .tl-step p { font-size: 13.5px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+    .tl-charge-badge {
+      display: inline-block; margin-top: 10px;
+      background: var(--teal); color: #fff;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+      padding: 4px 14px; border-radius: 20px;
+    }
+
+    /* ── TWO COLUMN — mock UI + consent ── */
+    .two-col-section { padding: 64px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+    /* mock product card */
+    .mock-product-card {
+      background: var(--white); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .mock-product-header {
+      background: var(--teal); padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .mock-product-header span { color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; }
+    .mock-product-body { padding: 24px; }
+    .mock-options { display: flex; gap: 8px; margin-bottom: 20px; }
+    .mock-opt {
+      flex: 1; border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 6px; text-align: center; position: relative; background: var(--stone);
+    }
+    .mock-opt.sel { border: 2px solid var(--teal); background: var(--teal-pale); }
+    .mock-badge {
+      position: absolute; top: -9px; left: 50%; transform: translateX(-50%);
+      background: var(--teal); color: #fff; font-size: 8px; font-weight: 700;
+      padding: 2px 7px; border-radius: 8px; white-space: nowrap;
+    }
+    .mock-badge.org { background: #e07b3a; }
+    .mock-opt-icon { font-size: 18px; margin-bottom: 4px; }
+    .mock-opt-label { font-size: 10px; font-weight: 500; color: var(--ink); }
+    .mock-sub-box {
+      border: 2px solid var(--teal); border-radius: 10px; overflow: hidden; margin-bottom: 12px;
+    }
+    .mock-sub-top {
+      background: var(--teal); color: #fff; text-align: center;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 6px;
+    }
+    .mock-sub-body { background: var(--teal-pale); padding: 12px; }
+    .mock-sub-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .mock-radio-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 2px solid var(--teal); background: var(--teal);
+      box-shadow: inset 0 0 0 3px #fff; flex-shrink: 0;
+    }
+    .mock-sub-title { font-size: 12px; font-weight: 600; color: var(--ink); }
+    .mock-sub-price { font-size: 11px; color: var(--teal-dark); }
+    .mock-sub-checks { padding-left: 22px; }
+    .mock-sub-check { font-size: 11px; color: var(--muted); margin-bottom: 3px; display: flex; gap: 5px; }
     .mc { color: var(--teal); font-weight: 700; }
-    .mock-onetime-row { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; }
-    .mock-renewal-box { background: #fff; border: 2px solid var(--teal); border-radius: 12px; padding: 24px; text-align: center; }
-    .renewal-icon { font-size: 36px; margin-bottom: 10px; }
-    .renewal-title { font-family: 'Libre Baskerville', serif; font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
-    .renewal-sub { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
-    .renewal-details { border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; margin-bottom: 14px; text-align: left; }
-    .renewal-row { display: flex; justify-content: space-between; padding: 9px 14px; font-size: 13px; border-bottom: 1px solid #f0f0f0; color: var(--muted); }
-    .renewal-row:last-child { border-bottom: none; }
-    .renewal-val { font-weight: 500; color: var(--black); }
-    .renewal-val.green { color: var(--teal-dark); }
-    .renewal-note { font-size: 12px; color: var(--muted); background: #f8f8f8; border-radius: 8px; padding: 10px 12px; line-height: 1.6; }
+    .mock-onetime {
+      display: flex; align-items: center; gap: 8px; padding: 10px 12px;
+      border: 1px solid var(--border); border-radius: 8px; background: #fff;
+    }
+    .mock-radio-empty {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 2px solid var(--border); flex-shrink: 0;
+    }
+    .mock-onetime-text { font-size: 12px; color: var(--muted); }
 
-    /* FAQ - critical ones pre-expanded */
-    .faq-section { padding: 72px 40px; max-width: 740px; margin: 0 auto; }
-    .faq-section .section-title { text-align: left; margin-bottom: 8px; }
-    .faq-section .section-eyebrow { text-align: left; }
-    .faq-note { font-size: 13px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; }
-    .faq-item { border-top: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-btn { width: 100%; background: none; border: none; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: var(--black); text-align: left; }
-    .faq-btn .plus { font-size: 22px; font-weight: 300; color: var(--teal); flex-shrink: 0; transition: transform 0.2s; line-height: 1; }
-    .faq-btn[aria-expanded="true"] .plus { transform: rotate(45deg); }
-    .faq-answer { display: none; padding-bottom: 20px; font-size: 14px; color: var(--muted); line-height: 1.85; }
+    /* consent + info panel */
+    .info-panel { display: flex; flex-direction: column; gap: 16px; }
+    .info-box {
+      background: var(--white); border-radius: 14px; padding: 24px 28px;
+      border: 1px solid var(--border);
+    }
+    .info-box.highlight { border-color: #f0dfa0; background: #fff8ed; }
+    .info-box h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px; color: var(--ink); margin-bottom: 8px;
+    }
+    .info-box.highlight h4 { color: #3a2f00; }
+    .info-box p { font-size: 13.5px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+    .info-box.highlight p { color: #5a4a00; }
+    .info-box a { color: var(--teal-dark); font-weight: 500; }
+    .info-box.highlight a { color: #3a2f00; font-weight: 600; }
+
+    /* ── GUARANTEE ── */
+    .guarantee-section { padding: 48px 0 0; }
+    .guarantee-inner {
+      background: var(--green-bg); border: 1.5px solid var(--green-border);
+      border-radius: 16px; padding: 32px 36px;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .g-icon { font-size: 40px; flex-shrink: 0; }
+    .g-text h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px; color: var(--green-text); margin-bottom: 6px;
+    }
+    .g-text p { font-size: 13.5px; color: #2d5a3d; line-height: 1.7; font-weight: 300; }
+    .g-text a { color: var(--green-text); font-weight: 600; }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 64px 0 0; }
+    .faq-grid { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start; }
+    .faq-left h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px; color: var(--ink); line-height: 1.2; margin-bottom: 12px;
+    }
+    .faq-left p { font-size: 13.5px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+    .faq-list { border-top: 1px solid var(--border); }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-btn {
+      width: 100%; background: none; border: none; padding: 18px 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px; font-weight: 500; color: var(--ink); text-align: left;
+    }
+    .faq-icon {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--muted); flex-shrink: 0;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+      font-weight: 300; line-height: 1;
+    }
+    .faq-btn[aria-expanded="true"] .faq-icon {
+      transform: rotate(45deg); background: var(--teal); border-color: var(--teal); color: #fff;
+    }
+    .faq-answer { display: none; padding-bottom: 18px; font-size: 13.5px; color: var(--muted); line-height: 1.85; font-weight: 300; }
     .faq-answer.open { display: block; }
-    /* Pre-expanded critical FAQs */
-    .faq-critical .faq-answer { display: block; padding-bottom: 20px; }
-    .faq-critical .faq-btn .plus { transform: rotate(45deg); }
-    .faq-answer a { color: var(--teal-dark); text-decoration: underline; }
+    .faq-pre .faq-answer { display: block; }
+    .faq-pre .faq-icon { transform: rotate(45deg); background: var(--teal); border-color: var(--teal); color: #fff; }
+    .faq-answer a { color: var(--teal-dark); font-weight: 500; }
 
-    /* GUARANTEE BANNER */
-    .guarantee-banner {
-      background: #eaf7f0;
-      border: 2px solid #a8dfc4;
-      border-radius: 16px;
-      padding: 32px 40px;
-      max-width: 760px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    /* ── REVIEWS ── */
+    .reviews-section { padding: 64px 0 0; }
+    .reviews-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+    .reviews-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 34px; color: var(--ink); line-height: 1.15;
     }
-    .guarantee-icon { font-size: 36px; flex-shrink: 0; }
-    .guarantee-text h3 { font-family: 'Libre Baskerville', serif; font-size: 18px; font-weight: 700; color: #1a6644; margin-bottom: 6px; }
-    .guarantee-text p { font-size: 14px; color: #2d5a3d; line-height: 1.7; }
-    .guarantee-text a { color: #1a6644; font-weight: 600; }
-    .guarantee-wrap { padding: 40px; }
+    .tp-badge {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 16px;
+    }
+    .tp-stars { color: #f4a400; font-size: 16px; }
+    .tp-info { font-size: 12px; color: var(--muted); line-height: 1.4; }
+    .tp-link { color: #00b67a; font-weight: 700; text-decoration: none; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .review-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 14px; padding: 26px 22px;
+    }
+    .r-stars { color: #f4a400; font-size: 14px; margin-bottom: 12px; }
+    .r-text { font-size: 13.5px; color: var(--ink); line-height: 1.75; margin-bottom: 18px; font-style: italic; font-weight: 300; }
+    .r-author { display: flex; align-items: center; gap: 10px; }
+    .r-av {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--teal); color: #fff; font-size: 14px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .r-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .r-tag { font-size: 11px; color: var(--teal-dark); margin-top: 1px; }
 
-    /* CTA SECTION */
-    .cta-section { background: var(--off-white); padding: 72px 40px; border-top: 1px solid var(--border); }
-    .cta-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-    .cta-sub { font-size: 15px; color: var(--muted); max-width: 420px; margin: 12px auto 20px; line-height: 1.75; }
+    /* ── CTA ── */
+    .cta-section { padding: 64px 0 0; }
+    .cta-band {
+      background: #0d3d3b; border-radius: 20px; padding: 56px 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .cta-left h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px; color: #fff; margin-bottom: 12px; line-height: 1.15;
+    }
+    .cta-left p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.75; font-weight: 300; }
+    .cta-cards { display: flex; flex-direction: column; gap: 14px; }
+    .cta-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 22px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .cta-card-left h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .cta-card-left p { font-size: 12.5px; color: rgba(255,255,255,0.8); font-weight: 300; }
+    .cta-btn {
+      display: inline-block; white-space: nowrap; text-decoration: none;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 12px 22px; border-radius: 25px; transition: all 0.15s; flex-shrink: 0;
+    }
+    .cta-btn.teal { background: var(--teal); color: #fff; }
+    .cta-btn.teal:hover { background: var(--teal-dark); }
+    .cta-btn.yellow { background: var(--yellow); color: var(--black); }
+    .cta-btn.yellow:hover { background: var(--yellow-dark); }
 
-    /* Trust line */
-    .trust-line { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 44px; }
-    .stars { color: #f4a400; font-size: 18px; letter-spacing: 2px; }
-    .trust-line p { font-size: 13px; color: var(--muted); }
-    .trust-line strong { color: var(--black); }
-
-    .cta-cards { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-    .cta-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 40px 36px; flex: 1; min-width: 290px; max-width: 380px; text-align: left; }
-    .cta-card.featured { border: 2px solid var(--teal); background: #f0fafa; }
-    .cta-tag { font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal-dark); display: block; margin-bottom: 14px; }
-    .cta-card h3 { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 12px; line-height: 1.3; }
-    .cta-card p { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 8px; }
-    .cta-sla { font-size: 13px; font-weight: 600; color: var(--teal-dark); margin-bottom: 24px; }
-    .btn-teal-block { display: block; text-align: center; background: var(--teal); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; padding: 15px 20px; border-radius: 30px; transition: background 0.15s; }
-    .btn-teal-block:hover { background: var(--teal-dark); }
-    .btn-yellow-block { display: block; text-align: center; background: var(--yellow); color: var(--black); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; padding: 15px 20px; border-radius: 30px; transition: background 0.15s; }
-    .btn-yellow-block:hover { background: var(--yellow-dark); }
-
-    /* TRUST BAR */
-    .trust-bar { background: var(--white); border-top: 1px solid var(--border); padding: 32px 40px; }
-    .trust-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
-    .t-item { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--text); }
-    .t-check { width: 22px; height: 22px; border-radius: 50%; background: var(--teal-light); border: 1.5px solid var(--teal); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--teal-dark); font-weight: 700; flex-shrink: 0; }
-
-    /* FOOTER */
-    footer { background: #111; color: #999; padding: 56px 40px 36px; }
-    .footer-top { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid #222; align-items: center; }
-    .f-logo { font-family: 'Libre Baskerville', serif; font-size: 30px; font-weight: 700; color: #fff; display: block; margin-bottom: 14px; }
-    .f-brand p { font-size: 13px; color: #888; line-height: 1.7; max-width: 360px; margin-bottom: 14px; }
-    .f-email { font-size: 13px; color: #aaa; margin-bottom: 6px; display: block; }
-    .f-addr { font-size: 12px; color: #666; line-height: 1.6; display: block; }
-    .f-right { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 22px; }
-    .f-right a { font-size: 17px; color: #ccc; text-decoration: none; font-weight: 400; transition: color 0.15s; }
+    /* ── FOOTER ── */
+    footer { background: #0d3d3b; color: #666; padding: 52px 40px 36px; margin-top: 80px; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      padding-bottom: 36px; border-bottom: 1px solid #1a5250; align-items: center;
+    }
+    .f-logo { font-family: 'DM Serif Display', serif; font-size: 26px; color: #fff; display: block; margin-bottom: 10px; }
+    .f-brand p { font-size: 12.5px; color: #555; line-height: 1.7; max-width: 340px; margin-bottom: 12px; }
+    .f-contact { font-size: 12.5px; color: #666; line-height: 1.8; }
+    .f-right { display: flex; flex-direction: column; align-items: flex-end; gap: 18px; }
+    .f-right a { font-size: 16px; color: #888; text-decoration: none; font-weight: 400; transition: color 0.15s; }
     .f-right a:hover { color: #fff; }
-    .f-right .f-manage { background: var(--teal); color: #fff; padding: 13px 30px; border-radius: 25px; font-size: 16px; font-weight: 600; }
-    .f-right .f-manage:hover { background: var(--teal-dark); color: #fff; }
-    .footer-disclaimer { max-width: 1200px; margin: 20px auto 0; font-size: 11px; color: #444; line-height: 1.6; }
-    .footer-bottom { max-width: 1200px; margin: 16px auto 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #444; }
-    .footer-bottom a { color: #666; text-decoration: none; transition: color 0.15s; }
-    .footer-bottom a:hover { color: #aaa; }
-
-
-    /* ORDER CONFIRMATION */
-    .order-confirm { background: #fff; padding: 56px 40px 48px; border-bottom: 1px solid var(--border); }
-    .order-confirm-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .oc-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px; text-align: center; }
-    .oc-icon { font-size: 36px; margin-bottom: 14px; }
-    .oc-card h3 { font-family: "Libre Baskerville", serif; font-size: 17px; font-weight: 700; color: var(--black); margin-bottom: 10px; }
-    .oc-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
-    .oc-card a { color: var(--teal-dark); }
-
-    /* SAW CHARGE BAR */
-    .saw-charge-bar { background: var(--black); padding: 16px 40px; text-align: center; }
-    .saw-charge-bar p { font-size: 14px; color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.6; }
-    .saw-charge-bar strong { color: #fff; }
-
-    /* REVIEWS */
-    .reviews-section { background: var(--off-white); padding: 72px 40px; border-top: 1px solid var(--border); }
-    .reviews-inner { max-width: 1000px; margin: 0 auto; }
-    .tp-header { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 44px; flex-wrap: wrap; }
-    .tp-stars { color: #f4a400; font-size: 20px; letter-spacing: 2px; }
-    .tp-score { font-size: 14px; color: var(--muted); }
-    .tp-logo { font-size: 14px; font-weight: 700; color: #00b67a; text-decoration: none; }
-    .tp-logo:hover { text-decoration: underline; }
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
-    .review-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; }
-    .review-stars { color: #f4a400; font-size: 16px; letter-spacing: 1px; margin-bottom: 12px; }
-    .review-text { font-size: 14px; color: var(--text); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
-    .review-author { display: flex; align-items: center; gap: 12px; }
-    .review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--teal); color: #fff; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .review-name { font-size: 14px; font-weight: 600; color: var(--black); }
-    .review-verified { font-size: 12px; color: var(--teal-dark); margin-top: 2px; }
-
-    @media (max-width: 768px) {
-      .order-confirm { padding: 48px 20px 36px; }
-      .saw-charge-bar { padding: 14px 20px; }
-      .reviews-section { padding: 56px 20px; }
+    .f-right .f-cta {
+      background: var(--teal); color: #fff;
+      padding: 12px 28px; border-radius: 25px; font-size: 14px; font-weight: 600;
     }
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .header-wrap { padding: 0 20px; }
-      .header-nav .hide-sm { display: none; }
-      .hero { padding: 48px 20px 36px; }
-      .consent-banner { padding: 16px 20px; }
-      .journey-section, .faq-section, .cta-section { padding: 56px 20px; }
-      .journey-step { grid-template-columns: 1fr; gap: 24px; padding: 28px 20px; }
-      .mock-supply-picker { flex-direction: column; }
-      .guarantee-wrap { padding: 0 20px 48px; }
-      .guarantee-banner { flex-direction: column; gap: 12px; }
-      .trust-bar { padding: 24px 20px; }
-      .trust-inner { gap: 20px; }
-      footer { padding: 48px 20px 28px; }
+    .f-right .f-cta:hover { background: var(--teal-dark); color: #fff; }
+    .footer-bottom {
+      padding-top: 24px; display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px; font-size: 11.5px; color: #333;
+    }
+    .footer-bottom a { color: #444; text-decoration: none; transition: color 0.15s; }
+    .footer-bottom a:hover { color: #888; }
+    .footer-disc { font-size: 10.5px; color: #333; line-height: 1.6; margin-top: 16px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hdr { padding: 0 20px; }
+      .hdr-links .hide-sm { display: none; }
+      .hero { padding: 56px 20px 0; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-left { padding-bottom: 0; }
+      .receipt-card { border-radius: 16px; margin-bottom: 0; }
+      .page-body { padding: 0 20px 60px; }
+      .timeline { grid-template-columns: 1fr; gap: 32px; }
+      .timeline::before { display: none; }
+      .two-col-section { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; gap: 28px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .cta-band { grid-template-columns: 1fr; padding: 36px 24px; }
+      .guarantee-inner { flex-direction: column; gap: 14px; }
       .footer-top { grid-template-columns: 1fr; }
       .f-right { align-items: flex-start; }
-      .footer-bottom { flex-direction: column; }
+      footer { padding: 48px 20px 28px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="ann-bar">Recognized a charge from Ledisa? You're in the right place - we're here to help.</div>
+<div class="top-strip">Recognized a Ledisa charge? You're in the right place.</div>
 
-<!-- HEADER -->
 <header class="site-header">
-  <div class="header-wrap">
-    <a href="https://tryledisa.com" class="site-logo">Ledisa</a>
-    <nav class="header-nav">
+  <div class="hdr">
+    <a href="https://tryledisa.com" class="logo">Ledisa</a>
+    <nav class="hdr-links">
       <a href="https://tryledisa.com" class="hide-sm">Shop Patches</a>
       <a href="mailto:help@tryledisa.com" class="hide-sm">help@tryledisa.com</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO — split dark layout -->
 <section class="hero">
-  <div class="pill">Order Confirmed ✓</div>
-  <h1>Thank you for your Ledisa order!</h1>
-  <p>Your patches are on their way. This page is your subscription hub - bookmark it to manage your orders, track shipments, or get support anytime.</p>
-  <div class="descriptor">
-    <span class="descriptor-dot"></span>
-    Your bank or card may show: <strong>LEDISA</strong> &nbsp;·&nbsp; <strong>TRYLEDISA.COM</strong>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span></span> Order & Billing Help</div>
+      <h1>Your Ledisa order <em>went through.</em></h1>
+      <p class="hero-desc">Whether this is your first purchase or a recurring shipment, this page confirms your order and gives you everything you need to manage your account.</p>
+    </div>
+    <div class="receipt-card">
+      <div class="receipt-header">
+        <div class="receipt-badge">✅</div>
+        <div class="receipt-header-text">
+          <h3>Payment Confirmed</h3>
+          <p>Your Ledisa order is in progress</p>
+        </div>
+      </div>
+      <div class="receipt-rows">
+        <div class="receipt-row">
+          <span class="label">Order status</span>
+          <span class="val green">Confirmed</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">Fulfilment</span>
+          <span class="val">Being prepared</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">Shipping</span>
+          <span class="val">To your saved address</span>
+        </div>
+        <div class="receipt-row">
+          <span class="label">Confirmation email</span>
+          <span class="val">Sent to your inbox</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ORDER CONFIRMATION SECTION -->
-<section class="order-confirm">
-  <div class="order-confirm-inner">
-    <div class="oc-card">
-      <div class="oc-icon">📦</div>
-      <h3>Your order is being prepared</h3>
-      <p>Your Ledisa patches are packed and on their way to you. You'll receive a shipping confirmation email with your tracking number shortly.</p>
+<div class="page-body">
+
+  <!-- TIMELINE — what happened -->
+  <section class="timeline-section">
+    <div class="tl-header">
+      <p class="eyebrow">What happened</p>
+      <h2 class="display-title">Your journey from click to charge</h2>
+      <p class="display-sub">Every Ledisa charge follows the same path — whether it's your first order or a subscription renewal.</p>
     </div>
-    <div class="oc-card">
-      <div class="oc-icon">🔄</div>
-      <h3>Subscribed? You're all set</h3>
-      <p>If you chose Subscribe & Save, your account is active and your next supply will ship automatically. Log in anytime to manage your orders.</p>
-    </div>
-    <div class="oc-card">
-      <div class="oc-icon">💬</div>
-      <h3>We're here if you need us</h3>
-      <p>Questions about your order? Our support team is available to help. Reach us anytime at <a href="mailto:help@tryledisa.com">help@tryledisa.com</a>.</p>
-    </div>
-  </div>
-</section>
-
-<!-- DIVIDER WITH SECONDARY MESSAGE -->
-<div class="saw-charge-bar">
-  <p>🔄 <strong>New Ledisa charge?</strong> That's your subscription working as expected - scroll down to learn more.</p>
-</div>
-
-<!-- CONSENT REMINDER -->
-<div class="consent-banner">
-  <p>📋 <strong>When you completed your order, you confirmed your subscription terms and received an email confirmation.</strong> Your subscription renews automatically each month as agreed at checkout. If you didn't receive your confirmation email, check your spam folder or <a href="mailto:help@tryledisa.com" style="color:#5a4a00;font-weight:600;">contact our team</a> and we'll resend it.</p>
-</div>
-
-<!-- JOURNEY SECTION -->
-<section class="journey-section">
-  <div class="journey-inner">
-    <p class="section-eyebrow">Here's What Happened</p>
-    <h2 class="section-title">Your ordering journey, step by step</h2>
-    <p class="section-sub">This is exactly what happened when you first ordered from Ledisa, and why you're seeing this charge now.</p>
-
-    <!-- STEP 1 -->
-    <div class="journey-step">
-      <div>
-        <div class="j-label">Step 1</div>
-        <h3 class="j-title">You chose your Ledisa patches</h3>
-        <p class="j-desc">You visited the Ledisa product page and selected your patch - like the GLP-1, Sleep, or Dopamine patch. You chose your preferred supply size.</p>
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-dot-wrap"><div class="tl-dot">🛍️</div></div>
+        <p class="tl-step-num">Step 1</p>
+        <h3>You chose your patches</h3>
+        <p>You visited Ledisa, selected your wellness patches, and picked your preferred supply size.</p>
       </div>
-      <div class="mock-supply-picker">
-        <div class="mock-supply-opt">
-          <div class="mock-patch-img">📦</div>
-          <div class="mock-supply-label">1 month supply</div>
-        </div>
-        <div class="mock-supply-opt selected">
-          <div class="mock-save-badge">SAVE 50%</div>
-          <div class="mock-patch-img">📦📦📦</div>
-          <div class="mock-supply-label">3 months supply</div>
-        </div>
-        <div class="mock-supply-opt">
-          <div class="mock-save-badge orange">SAVE 40%</div>
-          <div class="mock-patch-img">📦📦</div>
-          <div class="mock-supply-label">2 months supply</div>
-        </div>
+      <div class="tl-step">
+        <div class="tl-dot-wrap"><div class="tl-dot">🧾</div></div>
+        <p class="tl-step-num">Step 2</p>
+        <h3>You completed checkout</h3>
+        <p>You selected either a one-time purchase or Subscribe & Save, confirmed your order terms, and paid.</p>
+      </div>
+      <div class="tl-step active">
+        <div class="tl-dot-wrap"><div class="tl-dot">📦</div></div>
+        <p class="tl-step-num">Step 3</p>
+        <h3>Your order was charged</h3>
+        <p>This is the charge you're seeing. Your patches are packed and on their way to you right now.</p>
+        <div class="tl-charge-badge">This is your charge</div>
       </div>
     </div>
+  </section>
 
-    <div class="journey-connector">↓</div>
-
-    <!-- STEP 2 -->
-    <div class="journey-step">
-      <div>
-        <div class="j-label">Step 2</div>
-        <h3 class="j-title">You selected Subscribe &amp; Save</h3>
-        <p class="j-desc">At checkout, you chose the <strong>Subscribe &amp; Save</strong> option - which gave you a discounted price and enrolled you in automatic monthly renewals. You confirmed the subscription terms before completing your purchase.</p>
+  <!-- TWO COL — mock UI + consent boxes -->
+  <section class="two-col-section">
+    <div class="mock-product-card">
+      <div class="mock-product-header">
+        <span>What you saw at checkout</span>
+        <span style="font-size:18px;">🛒</span>
       </div>
-      <div class="mock-subscribe-box">
-        <div class="mock-popular-bar">MOST POPULAR: UP TO 50% OFF</div>
-        <div class="mock-subscribe-inner">
-          <div class="mock-radio-row">
-            <span class="mock-radio active"></span>
-            <div>
-              <div class="mock-sub-title">Subscribe &amp; Save: <span class="mock-price">$53.97</span> <span class="mock-price-old">$113.97</span></div>
-              <div class="mock-sub-sub">3 packs every 3 months</div>
+      <div class="mock-product-body">
+        <div class="mock-options">
+          <div class="mock-opt">
+            <div class="mock-opt-icon">📦</div>
+            <div class="mock-opt-label">1 month</div>
+          </div>
+          <div class="mock-opt sel">
+            <div class="mock-badge">SAVE 50%</div>
+            <div class="mock-opt-icon">📦📦📦</div>
+            <div class="mock-opt-label">3 months</div>
+          </div>
+          <div class="mock-opt">
+            <div class="mock-badge org">SAVE 40%</div>
+            <div class="mock-opt-icon">📦📦</div>
+            <div class="mock-opt-label">2 months</div>
+          </div>
+        </div>
+        <div class="mock-sub-box">
+          <div class="mock-sub-top">MOST POPULAR: UP TO 50% OFF</div>
+          <div class="mock-sub-body">
+            <div class="mock-sub-row">
+              <div class="mock-radio-dot"></div>
+              <div>
+                <div class="mock-sub-title">Subscribe & Save — $53.97 <s style="font-size:11px;color:#999;">$113.97</s></div>
+                <div class="mock-sub-price">3 packs every 3 months</div>
+              </div>
+            </div>
+            <div class="mock-sub-checks">
+              <div class="mock-sub-check"><span class="mc">✓</span> FAST & FREE Shipping on 1st order</div>
+              <div class="mock-sub-check"><span class="mc">✓</span> Pause Or Cancel Any Time</div>
+              <div class="mock-sub-check"><span class="mc">✓</span> Exclusive Access to Members Perks</div>
             </div>
           </div>
-          <div class="mock-checks">
-            <div class="mock-check-line"><span class="mc">✓</span> FAST &amp; FREE Shipping on 1st order</div>
-            <div class="mock-check-line"><span class="mc">✓</span> Pause Or Cancel Any Time</div>
-            <div class="mock-check-line"><span class="mc">✓</span> Exclusive Access to Members Perks</div>
-          </div>
         </div>
-        <div class="mock-onetime-row">
-          <span class="mock-radio"></span>
-          <div>
-            <div class="mock-sub-title">One Time Purchase <span class="mock-price" style="float:right;">$65.97</span></div>
-            <div class="mock-sub-sub">3 pack delivered once</div>
-          </div>
+        <div class="mock-onetime">
+          <div class="mock-radio-empty"></div>
+          <div class="mock-onetime-text">One Time Purchase — $65.97 &nbsp;·&nbsp; 3 pack delivered once</div>
         </div>
       </div>
     </div>
 
-    <div class="journey-connector">↓</div>
-
-    <!-- STEP 3 -->
-    <div class="journey-step highlighted">
-      <div>
-        <div class="j-label-charge">👆 This is your charge</div>
-        <h3 class="j-title">Your subscription renewed this month</h3>
-        <p class="j-desc">Because you subscribed, Ledisa automatically billed you for your next supply. This is your <strong>regular monthly renewal</strong> - not a new order or an error.</p>
-        <span class="j-positive">📦 Your next supply is already packed and on its way to you.</span>
+    <div class="info-panel">
+      <div class="info-box highlight">
+        <h4>🔁 Did not place a new order? This is a refill or rebill.</h4>
+        <p>If you did not place an order recently, this charge is most likely a scheduled refill or rebill from your original Ledisa subscription. When you first ordered, you agreed to automatic renewals — this is that renewal being fulfilled. Didn't get a confirmation email? Check your spam or <a href="mailto:help@tryledisa.com">contact our team</a> and we'll resend it.</p>
       </div>
-      <div class="mock-renewal-box">
-        <div class="renewal-icon">🔄</div>
-        <div class="renewal-title">Monthly Renewal Processed</div>
-        <div class="renewal-sub">Your subscription renewed automatically</div>
-        <div class="renewal-details">
-          <div class="renewal-row"><span>Status</span><span class="renewal-val green">✓ Active</span></div>
-          <div class="renewal-row"><span>Type</span><span class="renewal-val">Subscribe &amp; Save</span></div>
-          <div class="renewal-row"><span>Ships to</span><span class="renewal-val">Your saved address</span></div>
+      <div class="info-box">
+        <h4>📦 Your order is on its way</h4>
+        <p>Your Ledisa patches are being prepared and will ship to the address on your account. You'll receive a tracking email once your order is dispatched.</p>
+      </div>
+      <div class="info-box">
+        <h4>🔄 Subscribed? You're all set</h4>
+        <p>If you chose Subscribe & Save, your account is active. You can manage, pause, or cancel your subscription anytime through the portal below.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="guarantee-section">
+    <div class="guarantee-inner">
+      <div class="g-icon">🛡️</div>
+      <div class="g-text">
+        <h3>90-Day Money-Back Guarantee</h3>
+        <p>Ledisa offers a 90-day money-back guarantee. To learn what's covered and how to request a return, please review our policy. <a href="https://tryledisa.com/pages/return-policy" target="_blank">View our full Refund & Return Policy →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ — sidebar layout -->
+  <section class="faq-section">
+    <div class="faq-grid">
+      <div class="faq-left">
+        <p class="eyebrow" style="text-align:left;">FAQ</p>
+        <h2>Common questions</h2>
+        <p>The two most important ones are open by default.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item faq-pre">
+          <button class="faq-btn" aria-expanded="true">Can I get a refund?<span class="faq-icon">+</span></button>
+          <div class="faq-answer open">Ledisa offers a 90-day money-back guarantee. Email us at <a href="mailto:help@tryledisa.com">help@tryledisa.com</a> and our team will review your case. You can also read our full <a href="https://tryledisa.com/pages/return-policy" target="_blank">Refund & Return Policy here</a>.</div>
         </div>
-        <div class="renewal-note">📧 A confirmation email was sent to the address on your account</div>
+        <div class="faq-item faq-pre">
+          <button class="faq-btn" aria-expanded="true">How do I cancel so I'm not charged again?<span class="faq-icon">+</span></button>
+          <div class="faq-answer open">If you'd like to cancel, please note that once an order is placed it is already being prepared for shipment and may not be stoppable. Please <a href="mailto:help@tryledisa.com">contact our support team</a> directly and we'll assist you right away — including any questions about returns or next steps.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Why was I charged if I didn't place a new order?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">If you chose Subscribe & Save when you first ordered, your subscription renews automatically each month. This charge is your regular renewal, not a new purchase.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">I don't remember signing up — what should I do?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Email our team at <a href="mailto:help@tryledisa.com">help@tryledisa.com</a> with the charge amount and date, and we'll pull up your account and walk you through it.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">Where is my order and when will it arrive?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Log into your account through the <a href="https://help.tryledisa.com/session">subscription portal</a> to see your order history, tracking number, and estimated delivery date.</div>
+        </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- 90-DAY GUARANTEE BANNER -->
-<div class="guarantee-wrap">
-  <div class="guarantee-banner">
-    <div class="guarantee-icon">🛡️</div>
-    <div class="guarantee-text">
-      <h3>90-Day Money-Back Guarantee</h3>
-      <p>Ledisa offers a 90-day money-back guarantee. To learn what's covered and how to request a return, please review our policy. <a href="https://tryledisa.com/pages/return-policy" target="_blank">View our full Refund &amp; Return Policy →</a></p>
-    </div>
-  </div>
-</div>
-
-<!-- FAQ - critical ones pre-expanded -->
-<section class="faq-section">
-  <p class="section-eyebrow">Common Questions</p>
-  <h2 class="section-title">Answers to what people ask most</h2>
-  <p class="faq-note">The two most important ones are already open below.</p>
-
-  <!-- PRE-EXPANDED: Refund -->
-  <div class="faq-item faq-critical">
-    <button class="faq-btn" aria-expanded="true">Can I get a refund?<span class="plus">+</span></button>
-    <div class="faq-answer open">Ledisa offers a 90-day money-back guarantee. Email us at <a href="mailto:help@tryledisa.com">help@tryledisa.com</a> and our team will review your case. You can also read our full <a href="https://tryledisa.com/pages/return-policy" target="_blank">Refund &amp; Return Policy here</a>.</div>
-  </div>
-
-  <!-- PRE-EXPANDED: Cancel -->
-  <div class="faq-item faq-critical">
-    <button class="faq-btn" aria-expanded="true">How do I cancel so I'm not charged again?<span class="plus">+</span></button>
-    <div class="faq-answer open">The fastest way is through your <a href="https://help.tryledisa.com/session">subscription portal</a> - it takes under 2 minutes. Or email <a href="mailto:help@tryledisa.com">help@tryledisa.com</a> and we'll cancel it for you right away.</div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-btn" aria-expanded="false">Why did I get charged if I didn't place a new order?<span class="plus">+</span></button>
-    <div class="faq-answer">Ledisa subscriptions renew automatically each month. When you first ordered, you enrolled in recurring billing. This charge is not a new purchase - it's your regular monthly renewal for the patches you're subscribed to.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-btn" aria-expanded="false">I don't remember signing up - what should I do?<span class="plus">+</span></button>
-    <div class="faq-answer">Email our team at <a href="mailto:help@tryledisa.com">help@tryledisa.com</a> with the charge amount and date, and we'll pull up your account and walk you through it.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-btn" aria-expanded="false">Where is my order and when will it arrive?<span class="plus">+</span></button>
-    <div class="faq-answer">Log into your account through the <a href="https://help.tryledisa.com/session">subscription portal</a> to see your order history, tracking number, and estimated delivery date.</div>
-  </div>
-</section>
-
-</div>
-
-<!-- TRUSTPILOT REVIEWS -->
-<section class="reviews-section">
-  <div class="reviews-inner">
-    <p class="section-eyebrow">What Our Customers Say</p>
-    <h2 class="section-title">Trusted by thousands of customers</h2>
-    <div class="tp-header">
-      <span class="tp-stars">★★★★★</span>
-      <span class="tp-score">4-star rating · 3,700+ reviews on</span>
-      <a href="https://www.trustpilot.com/review/tryledisa.com" target="_blank" class="tp-logo">Trustpilot</a>
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <div class="reviews-header">
+      <h2>Trusted by thousands<br>of customers</h2>
+      <div class="tp-badge">
+        <div>
+          <div class="tp-stars">★★★★★</div>
+          <div class="tp-info">4-star · 3,700+ reviews on <a href="https://www.trustpilot.com/review/tryledisa.com" target="_blank" class="tp-link">Trustpilot</a></div>
+        </div>
+      </div>
     </div>
     <div class="reviews-grid">
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"This stuff is MAGIC!!!! I don't snack at night anymore and my pants actually button comfortably again. I'm obsessed!"</p>
-        <div class="review-author">
-          <div class="review-avatar">D</div>
-          <div>
-            <div class="review-name">Danielle M.</div>
-            <div class="review-verified">✓ Verified Customer</div>
-          </div>
-        </div>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"This stuff is MAGIC!!!! I don't snack at night anymore and my pants actually button comfortably again. I'm obsessed!"</p>
+        <div class="r-author"><div class="r-av">D</div><div><div class="r-name">Danielle M.</div><div class="r-tag">✓ Verified Customer</div></div></div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Massive difference. This helped me feel more calm and positive when life just began feeling like a bit too much."</p>
-        <div class="review-author">
-          <div class="review-avatar">G</div>
-          <div>
-            <div class="review-name">Grace M.</div>
-            <div class="review-verified">✓ Verified Customer</div>
-          </div>
-        </div>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Massive difference. This helped me feel more calm and positive when life just began feeling like a bit too much."</p>
+        <div class="r-author"><div class="r-av">G</div><div><div class="r-name">Grace M.</div><div class="r-tag">✓ Verified Customer</div></div></div>
       </div>
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Actually feel satisfied after normal portions now instead of wanting seconds all the time. Took about a month to really kick in."</p>
-        <div class="review-author">
-          <div class="review-avatar">L</div>
-          <div>
-            <div class="review-name">Laura S.</div>
-            <div class="review-verified">✓ Verified Customer</div>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Actually feel satisfied after normal portions now instead of wanting seconds all the time. Took about a month to really kick in."</p>
+        <div class="r-author"><div class="r-av">L</div><div><div class="r-name">Laura S.</div><div class="r-tag">✓ Verified Customer</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA — dark band -->
+  <section class="cta-section">
+    <div class="cta-band">
+      <div class="cta-left">
+        <h2>What would you like to do?</h2>
+        <p>No hold times, no complicated forms. Everything is handled quickly.</p>
+      </div>
+      <div class="cta-cards">
+        <div class="cta-card">
+          <div class="cta-card-left">
+            <h4>Manage my subscription</h4>
+            <p>Update your address, swap products, or manage your plan.</p>
           </div>
+          <a href="https://help.tryledisa.com/session" class="cta-btn teal">My Account →</a>
+        </div>
+        <div class="cta-card">
+          <div class="cta-card-left">
+            <h4>Speak with our team</h4>
+            <p>Questions about your order or charge? We'll reply as soon as possible.</p>
+          </div>
+          <a href="mailto:help@tryledisa.com" class="cta-btn yellow">Email Us →</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  </div>
-</div>
-
-<!-- CTA SECTION -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <p class="section-eyebrow">What would you like to do?</p>
-    <h2 class="section-title">You're in control. Here are your options</h2>
-    <p class="cta-sub">Everything is handled quickly. No hold times, no complicated forms.</p>
-
-    <!-- TRUST LINE -->
-    <div class="trust-line">
-      <span class="stars">★★★★★</span>
-      <p>Trusted by <strong>over 3,700 customers</strong> on Trustpilot · Rated 4 stars</p>
-    </div>
-
-    <div class="cta-cards">
-      <div class="cta-card featured">
-        <span class="cta-tag">⭐ Most Common</span>
-        <h3>Manage or cancel my subscription</h3>
-        <p>Skip a month, change frequency, swap products, update your address, or cancel completely.</p>
-        <p class="cta-sla">Takes less than 2 minutes.</p>
-        <a href="https://help.tryledisa.com/session" class="btn-teal-block">Go to My Account →</a>
-      </div>
-      <div class="cta-card">
-        <span class="cta-tag">Customer Support</span>
-        <h3>Speak with our team</h3>
-        <p>Have a question about a charge or need help finding your account?</p>
-        <p class="cta-sla">Our team will reply as soon as possible.</p>
-        <a href="mailto:help@tryledisa.com" class="btn-yellow-block">Email help@tryledisa.com →</a>
-      </div>
-    </div>
-  </div>
-</section>  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div class="f-brand">
-      <span class="f-logo">Ledisa</span>
-      <p>We're a natural wellness patch brand dedicated to reshaping how you support your body every day.</p>
-      <span class="f-email">help@tryledisa.com</span>
-      <span class="f-addr">Ledisa LLC<br>2980 NE 207th ST, Suite 300<br>Aventura FL 33180, USA</span>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="f-brand">
+        <span class="f-logo">Ledisa</span>
+        <p>We're a natural wellness patch brand dedicated to reshaping how you support your body every day.</p>
+        <div class="f-contact">
+          help@tryledisa.com<br>
+          Ledisa LLC · 2980 NE 207th ST, Suite 300 · Aventura FL 33180, USA
+        </div>
+      </div>
+      <div class="f-right">
+        <a href="https://tryledisa.com">Shop Patches</a>
+        <a href="mailto:help@tryledisa.com">help@tryledisa.com</a>
+        <a href="https://tryledisa.com/pages/return-policy" target="_blank">Refund & Return Policy</a>
+        <a href="https://help.tryledisa.com/session" class="f-cta">Manage Subscription</a>
+      </div>
     </div>
-    <div class="f-right">
-      <a href="https://tryledisa.com">Shop Patches</a>
-      <a href="mailto:help@tryledisa.com">help@tryledisa.com</a>
-      <a href="https://tryledisa.com/pages/return-policy" target="_blank">Refund &amp; Return Policy</a>
-      <a href="https://help.tryledisa.com/session" class="f-manage">Manage Subscription</a>
+    <p class="footer-disc">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Patches are not a replacement for or medical equivalent to medical treatments.</p>
+    <div class="footer-bottom">
+      <span>© 2025 Ledisa. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="https://tryledisa.com/pages/return-policy" target="_blank">Refund & Return Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Service</a>
+      </span>
     </div>
-  </div>
-  <div class="footer-disclaimer">
-    *These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Patches are not a replacement for or medical equivalent to medical treatments.
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Ledisa. All rights reserved.</span>
-    <span>
-      <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
-      <a href="https://tryledisa.com/pages/return-policy" target="_blank">Refund &amp; Return Policy</a> &nbsp;·&nbsp;
-      <a href="#">Terms of Service</a>
-    </span>
   </div>
 </footer>
 
@@ -560,7 +707,7 @@
   document.querySelectorAll('.faq-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var open = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !open);
+      this.setAttribute('aria-expanded', String(!open));
       this.nextElementSibling.classList.toggle('open', !open);
     });
   });
